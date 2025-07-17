@@ -1,0 +1,128 @@
+[
+  {
+    "id": "pattern_20250203_224500",
+    "type": "positive",
+    "timestamps": [
+      "2025-02-03 22:45:00",
+      "2025-02-03 23:00:00",
+      "2025-02-04 10:30:00",
+      "2025-02-04 12:00:00",
+      "2025-02-04 13:00:00"
+    ],
+    "algorithm_confidence": 0.8,
+    "algorithm_quality": 79.75422994248882,
+    "cup_depth_pct": 0.7583606149765861,
+    "handle_depth_pct": 25.705329153605017,
+    "source_version": "v3",
+    "labeled_at": "2025-07-16T10:56:43.464612",
+    "source": "multi_algorithm_detection_fixed"
+  },
+  {
+    "id": "pattern_20250228_101500",
+    "type": "positive",
+    "timestamps": [
+      "2025-02-28 10:15:00",
+      "2025-02-28 12:15:00",
+      "2025-03-02 17:00:00",
+      "2025-03-02 18:30:00",
+      "2025-03-03 05:00:00"
+    ],
+    "algorithm_confidence": 0.8,
+    "algorithm_quality": 75.44641045929987,
+    "cup_depth_pct": 0.9149440867502542,
+    "handle_depth_pct": 27.472527472527474,
+    "source_version": "v3",
+    "labeled_at": "2025-07-16T10:56:43.464612",
+    "source": "multi_algorithm_detection_fixed"
+  },
+  {
+    "id": "pattern_20250312_193000",
+    "type": "positive",
+    "timestamps": [
+      "2025-03-12 19:30:00",
+      "2025-03-13 12:45:00",
+      "2025-03-14 12:00:00",
+      "2025-03-14 13:30:00",
+      "2025-03-16 17:00:00"
+    ],
+    "algorithm_confidence": 0.8,
+    "algorithm_quality": 69.56230512532206,
+    "cup_depth_pct": 1.9181984066936668,
+    "handle_depth_pct": 16.602316602316602,
+    "source_version": "v3",
+    "labeled_at": "2025-07-16T10:56:43.464612",
+    "source": "multi_algorithm_detection_fixed"
+  },
+  {
+    "id": "pattern_20250313_093000",
+    "type": "positive",
+    "timestamps": [
+      "2025-03-13 09:30:00",
+      "2025-03-13 12:45:00",
+      "2025-03-14 12:00:00",
+      "2025-03-14 13:30:00",
+      "2025-03-14 14:15:00"
+    ],
+    "algorithm_confidence": 0.8,
+    "algorithm_quality": 73.80334794873971,
+    "cup_depth_pct": 1.5589404565149416,
+    "handle_depth_pct": 16.602316602316602,
+    "source_version": "v3",
+    "labeled_at": "2025-07-16T10:56:43.464612",
+    "source": "multi_algorithm_detection_fixed"
+  },
+  {
+    "id": "pattern_20250317_140000",
+    "type": "positive",
+    "timestamps": [
+      "2025-03-17 14:00:00",
+      "2025-03-18 10:45:00",
+      "2025-03-19 14:00:00",
+      "2025-03-19 15:30:00",
+      "2025-03-20 09:45:00"
+    ],
+    "algorithm_confidence": 0.8,
+    "algorithm_quality": 73.9135113264705,
+    "cup_depth_pct": 1.8242626938279112,
+    "handle_depth_pct": 34.65553235908142,
+    "source_version": "v3",
+    "labeled_at": "2025-07-16T10:56:43.464612",
+    "source": "multi_algorithm_detection_fixed"
+  },
+  {
+    "id": "pattern_20250317_150000",
+    "type": "positive",
+    "timestamps": [
+      "2025-03-17 15:00:00",
+      "2025-03-18 10:45:00",
+      "2025-03-19 14:00:00",
+      "2025-03-19 15:30:00",
+      "2025-03-20 09:45:00"
+    ],
+    "algorithm_confidence": 0.8,
+    "algorithm_quality": 72.68388608245012,
+    "cup_depth_pct": 1.44756921735339,
+    "handle_depth_pct": 34.65553235908142,
+    "source_version": "v3",
+    "labeled_at": "2025-07-16T10:56:43.464612",
+    "source": "multi_algorithm_detection_fixed"
+  },
+  {
+    "id": "pattern_20250318_080000",
+    "type": "positive",
+    "timestamps": [
+      "2025-03-18 08:00:00",
+      "2025-03-18 10:45:00",
+      "2025-03-19 14:00:00",
+      "2025-03-19 15:30:00",
+      "2025-03-20 09:45:00"
+    ],
+    "algorithm_confidence": 0.8,
+    "algorithm_quality": 79.32101092836795,
+    "cup_depth_pct": 1.0289867764252563,
+    "handle_depth_pct": 34.65553235908142,
+    "source_version": "v3",
+    "labeled_at": "2025-07-16T10:56:43.464612",
+    "source": "multi_algorithm_detection_fixed"
+  }
+]

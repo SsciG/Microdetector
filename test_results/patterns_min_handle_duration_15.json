@@ -1,0 +1,596 @@
+[
+  {
+    "id": "test_pattern_1",
+    "type": "positive",
+    "timestamps": [
+      "2025-01-27 03:45:00",
+      "2025-01-27 04:50:00",
+      "2025-01-27 09:40:00",
+      "2025-01-27 12:10:00",
+      "2025-01-27 13:25:00"
+    ],
+    "algorithm_confidence": 0.8,
+    "algorithm_quality": 71.03248812655089,
+    "cup_depth_pct": 1.1385356935095154,
+    "handle_depth_pct": 36.25,
+    "source_version": "test_min_handle_duration_15",
+    "labeled_at": "2025-07-15T18:28:18.204675",
+    "source": "incremental_test"
+  },
+  {
+    "id": "test_pattern_2",
+    "type": "positive",
+    "timestamps": [
+      "2025-03-21 07:40:00",
+      "2025-03-21 08:25:00",
+      "2025-03-21 11:55:00",
+      "2025-03-21 14:25:00",
+      "2025-03-21 14:55:00"
+    ],
+    "algorithm_confidence": 0.8,
+    "algorithm_quality": 63.47432807152747,
+    "cup_depth_pct": 0.5674320401161256,
+    "handle_depth_pct": 33.61702127659574,
+    "source_version": "test_min_handle_duration_15",
+    "labeled_at": "2025-07-15T18:28:18.204675",
+    "source": "incremental_test"
+  },
+  {
+    "id": "test_pattern_3",
+    "type": "positive",
+    "timestamps": [
+      "2025-03-12 14:00:00",
+      "2025-03-13 12:45:00",
+      "2025-03-14 12:00:00",
+      "2025-03-14 14:30:00",
+      "2025-03-16 17:00:00"
+    ],
+    "algorithm_confidence": 0.8,
+    "algorithm_quality": 72.24982117955973,
+    "cup_depth_pct": 2.075094423461453,
+    "handle_depth_pct": 11.583011583011583,
+    "source_version": "test_min_handle_duration_15",
+    "labeled_at": "2025-07-15T18:28:18.204675",
+    "source": "incremental_test"
+  },
+  {
+    "id": "test_pattern_4",
+    "type": "positive",
+    "timestamps": [
+      "2025-03-21 07:35:00",
+      "2025-03-21 08:25:00",
+      "2025-03-21 11:55:00",
+      "2025-03-21 14:25:00",
+      "2025-03-21 14:55:00"
+    ],
+    "algorithm_confidence": 0.8,
+    "algorithm_quality": 66.38616417322882,
+    "cup_depth_pct": 0.7028332967274324,
+    "handle_depth_pct": 33.61702127659574,
+    "source_version": "test_min_handle_duration_15",
+    "labeled_at": "2025-07-15T18:28:18.204675",
+    "source": "incremental_test"
+  },
+  {
+    "id": "test_pattern_5",
+    "type": "positive",
+    "timestamps": [
+      "2025-03-14 09:00:00",
+      "2025-03-14 09:00:00",
+      "2025-03-14 10:45:00",
+      "2025-03-14 13:15:00",
+      "2025-03-14 13:35:00"
+    ],
+    "algorithm_confidence": 0.8,
+    "algorithm_quality": 80.27199893887916,
+    "cup_depth_pct": 0.562952372442141,
+    "handle_depth_pct": 31.2280701754386,
+    "source_version": "test_min_handle_duration_15",
+    "labeled_at": "2025-07-15T18:28:18.204675",
+    "source": "incremental_test"
+  },
+  {
+    "id": "test_pattern_6",
+    "type": "positive",
+    "timestamps": [
+      "2025-03-18 08:35:00",
+      "2025-03-18 10:55:00",
+      "2025-03-19 09:05:00",
+      "2025-03-19 11:35:00",
+      "2025-03-19 13:40:00"
+    ],
+    "algorithm_confidence": 0.8,
+    "algorithm_quality": 67.12353628043509,
+    "cup_depth_pct": 0.894462226509405,
+    "handle_depth_pct": 8.333333333333332,
+    "source_version": "test_min_handle_duration_15",
+    "labeled_at": "2025-07-15T18:28:18.204675",
+    "source": "incremental_test"
+  },
+  {
+    "id": "test_pattern_7",
+    "type": "positive",
+    "timestamps": [
+      "2025-03-18 08:35:00",
+      "2025-03-18 10:55:00",
+      "2025-03-19 09:05:00",
+      "2025-03-19 11:35:00",
+      "2025-03-19 13:40:00"
+    ],
+    "algorithm_confidence": 0.8,
+    "algorithm_quality": 67.12353628043509,
+    "cup_depth_pct": 0.894462226509405,
+    "handle_depth_pct": 8.333333333333332,
+    "source_version": "test_min_handle_duration_15",
+    "labeled_at": "2025-07-15T18:28:18.204675",
+    "source": "incremental_test"
+  },
+  {
+    "id": "test_pattern_8",
+    "type": "positive",
+    "timestamps": [
+      "2025-02-28 10:10:00",
+      "2025-02-28 12:20:00",
+      "2025-02-28 14:55:00",
+      "2025-03-02 18:20:00",
+      "2025-03-02 19:55:00"
+    ],
+    "algorithm_confidence": 0.8,
+    "algorithm_quality": 73.57017081427979,
+    "cup_depth_pct": 1.0490693739424704,
+    "handle_depth_pct": 19.51219512195122,
+    "source_version": "test_min_handle_duration_15",
+    "labeled_at": "2025-07-15T18:28:18.204675",
+    "source": "incremental_test"
+  },
+  {
+    "id": "test_pattern_9",
+    "type": "positive",
+    "timestamps": [
+      "2025-01-27 03:50:00",
+      "2025-01-27 04:50:00",
+      "2025-01-27 09:40:00",
+      "2025-01-27 12:10:00",
+      "2025-01-27 13:25:00"
+    ],
+    "algorithm_confidence": 0.8,
+    "algorithm_quality": 74.53752048270098,
+    "cup_depth_pct": 1.0974393082806784,
+    "handle_depth_pct": 36.25,
+    "source_version": "test_min_handle_duration_15",
+    "labeled_at": "2025-07-15T18:28:18.204675",
+    "source": "incremental_test"
+  },
+  {
+    "id": "test_pattern_10",
+    "type": "positive",
+    "timestamps": [
+      "2025-02-28 10:15:00",
+      "2025-02-28 12:20:00",
+      "2025-02-28 14:55:00",
+      "2025-03-02 18:20:00",
+      "2025-03-02 19:55:00"
+    ],
+    "algorithm_confidence": 0.8,
+    "algorithm_quality": 72.99963980242603,
+    "cup_depth_pct": 0.889755105499534,
+    "handle_depth_pct": 19.51219512195122,
+    "source_version": "test_min_handle_duration_15",
+    "labeled_at": "2025-07-15T18:28:18.204675",
+    "source": "incremental_test"
+  },
+  {
+    "id": "test_pattern_11",
+    "type": "positive",
+    "timestamps": [
+      "2025-02-28 11:40:00",
+      "2025-02-28 12:20:00",
+      "2025-02-28 14:55:00",
+      "2025-03-02 18:20:00",
+      "2025-03-02 19:55:00"
+    ],
+    "algorithm_confidence": 0.8,
+    "algorithm_quality": 70.55389339520728,
+    "cup_depth_pct": 0.7299270072992701,
+    "handle_depth_pct": 19.51219512195122,
+    "source_version": "test_min_handle_duration_15",
+    "labeled_at": "2025-07-15T18:28:18.204675",
+    "source": "incremental_test"
+  },
+  {
+    "id": "test_pattern_12",
+    "type": "positive",
+    "timestamps": [
+      "2025-03-12 19:30:00",
+      "2025-03-13 12:45:00",
+      "2025-03-14 10:45:00",
+      "2025-03-14 13:15:00",
+      "2025-03-14 13:35:00"
+    ],
+    "algorithm_confidence": 0.8,
+    "algorithm_quality": 70.04319342387603,
+    "cup_depth_pct": 1.9181984066936668,
+    "handle_depth_pct": 17.693836978131213,
+    "source_version": "test_min_handle_duration_15",
+    "labeled_at": "2025-07-15T18:28:18.204675",
+    "source": "incremental_test"
+  },
+  {
+    "id": "test_pattern_13",
+    "type": "positive",
+    "timestamps": [
+      "2025-04-01 05:10:00",
+      "2025-04-01 06:35:00",
+      "2025-04-01 10:15:00",
+      "2025-04-01 12:45:00",
+      "2025-04-01 14:55:00"
+    ],
+    "algorithm_confidence": 0.8,
+    "algorithm_quality": 64.29932356134913,
+    "cup_depth_pct": 0.5003320788133717,
+    "handle_depth_pct": 83.96946564885496,
+    "source_version": "test_min_handle_duration_15",
+    "labeled_at": "2025-07-15T18:28:18.204675",
+    "source": "incremental_test"
+  },
+  {
+    "id": "test_pattern_14",
+    "type": "positive",
+    "timestamps": [
+      "2025-03-18 08:35:00",
+      "2025-03-18 10:55:00",
+      "2025-03-19 09:05:00",
+      "2025-03-19 11:35:00",
+      "2025-03-19 13:40:00"
+    ],
+    "algorithm_confidence": 0.8,
+    "algorithm_quality": 67.12353628043509,
+    "cup_depth_pct": 0.894462226509405,
+    "handle_depth_pct": 8.333333333333332,
+    "source_version": "test_min_handle_duration_15",
+    "labeled_at": "2025-07-15T18:28:18.204675",
+    "source": "incremental_test"
+  },
+  {
+    "id": "test_pattern_15",
+    "type": "positive",
+    "timestamps": [
+      "2025-03-12 13:50:00",
+      "2025-03-13 12:45:00",
+      "2025-03-14 12:00:00",
+      "2025-03-14 14:30:00",
+      "2025-03-16 17:00:00"
+    ],
+    "algorithm_confidence": 0.8,
+    "algorithm_quality": 72.4849923386811,
+    "cup_depth_pct": 2.1359740663439766,
+    "handle_depth_pct": 11.583011583011583,
+    "source_version": "test_min_handle_duration_15",
+    "labeled_at": "2025-07-15T18:28:18.204675",
+    "source": "incremental_test"
+  },
+  {
+    "id": "test_pattern_16",
+    "type": "positive",
+    "timestamps": [
+      "2025-02-28 12:45:00",
+      "2025-02-28 13:00:00",
+      "2025-02-28 14:55:00",
+      "2025-03-02 18:20:00",
+      "2025-03-02 19:55:00"
+    ],
+    "algorithm_confidence": 0.8,
+    "algorithm_quality": 64.93313578417349,
+    "cup_depth_pct": 0.44180118946474084,
+    "handle_depth_pct": 21.428571428571427,
+    "source_version": "test_min_handle_duration_15",
+    "labeled_at": "2025-07-15T18:28:18.204675",
+    "source": "incremental_test"
+  },
+  {
+    "id": "test_pattern_17",
+    "type": "positive",
+    "timestamps": [
+      "2025-02-28 11:25:00",
+      "2025-02-28 12:20:00",
+      "2025-02-28 14:55:00",
+      "2025-03-02 18:20:00",
+      "2025-03-02 19:55:00"
+    ],
+    "algorithm_confidence": 0.8,
+    "algorithm_quality": 74.86247111407165,
+    "cup_depth_pct": 0.8561498686106638,
+    "handle_depth_pct": 19.51219512195122,
+    "source_version": "test_min_handle_duration_15",
+    "labeled_at": "2025-07-15T18:28:18.204675",
+    "source": "incremental_test"
+  },
+  {
+    "id": "test_pattern_18",
+    "type": "positive",
+    "timestamps": [
+      "2025-03-12 19:20:00",
+      "2025-03-13 12:45:00",
+      "2025-03-14 10:45:00",
+      "2025-03-14 13:15:00",
+      "2025-03-14 13:35:00"
+    ],
+    "algorithm_confidence": 0.8,
+    "algorithm_quality": 70.25306823562488,
+    "cup_depth_pct": 1.9618310423061522,
+    "handle_depth_pct": 17.693836978131213,
+    "source_version": "test_min_handle_duration_15",
+    "labeled_at": "2025-07-15T18:28:18.204675",
+    "source": "incremental_test"
+  },
+  {
+    "id": "test_pattern_19",
+    "type": "positive",
+    "timestamps": [
+      "2025-03-12 20:05:00",
+      "2025-03-13 12:45:00",
+      "2025-03-14 10:45:00",
+      "2025-03-14 13:15:00",
+      "2025-03-14 13:35:00"
+    ],
+    "algorithm_confidence": 0.8,
+    "algorithm_quality": 69.39591696723636,
+    "cup_depth_pct": 1.800196060957134,
+    "handle_depth_pct": 17.693836978131213,
+    "source_version": "test_min_handle_duration_15",
+    "labeled_at": "2025-07-15T18:28:18.204675",
+    "source": "incremental_test"
+  },
+  {
+    "id": "test_pattern_20",
+    "type": "positive",
+    "timestamps": [
+      "2025-02-28 11:25:00",
+      "2025-02-28 12:20:00",
+      "2025-02-28 14:55:00",
+      "2025-03-02 18:20:00",
+      "2025-03-02 19:55:00"
+    ],
+    "algorithm_confidence": 0.8,
+    "algorithm_quality": 74.86247111407165,
+    "cup_depth_pct": 0.8561498686106638,
+    "handle_depth_pct": 19.51219512195122,
+    "source_version": "test_min_handle_duration_15",
+    "labeled_at": "2025-07-15T18:28:18.204675",
+    "source": "incremental_test"
+  },
+  {
+    "id": "test_pattern_21",
+    "type": "positive",
+    "timestamps": [
+      "2025-03-18 08:00:00",
+      "2025-03-18 10:55:00",
+      "2025-03-19 09:05:00",
+      "2025-03-19 11:35:00",
+      "2025-03-19 13:40:00"
+    ],
+    "algorithm_confidence": 0.8,
+    "algorithm_quality": 60.83867573631529,
+    "cup_depth_pct": 0.994305738063951,
+    "handle_depth_pct": 8.333333333333332,
+    "source_version": "test_min_handle_duration_15",
+    "labeled_at": "2025-07-15T18:28:18.204675",
+    "source": "incremental_test"
+  },
+  {
+    "id": "test_pattern_22",
+    "type": "positive",
+    "timestamps": [
+      "2025-03-19 11:15:00",
+      "2025-03-19 13:00:00",
+      "2025-03-19 14:45:00",
+      "2025-03-19 18:10:00",
+      "2025-03-19 18:55:00"
+    ],
+    "algorithm_confidence": 0.8,
+    "algorithm_quality": 79.06293234619794,
+    "cup_depth_pct": 0.5513016845329249,
+    "handle_depth_pct": 17.01388888888889,
+    "source_version": "test_min_handle_duration_15",
+    "labeled_at": "2025-07-15T18:28:18.204675",
+    "source": "incremental_test"
+  },
+  {
+    "id": "test_pattern_23",
+    "type": "positive",
+    "timestamps": [
+      "2025-03-12 14:05:00",
+      "2025-03-13 12:45:00",
+      "2025-03-14 10:45:00",
+      "2025-03-14 13:15:00",
+      "2025-03-16 17:00:00"
+    ],
+    "algorithm_confidence": 0.8,
+    "algorithm_quality": 71.8539987979172,
+    "cup_depth_pct": 1.992350796050876,
+    "handle_depth_pct": 17.693836978131213,
+    "source_version": "test_min_handle_duration_15",
+    "labeled_at": "2025-07-15T18:28:18.204675",
+    "source": "incremental_test"
+  },
+  {
+    "id": "test_pattern_24",
+    "type": "positive",
+    "timestamps": [
+      "2025-03-12 19:40:00",
+      "2025-03-13 12:45:00",
+      "2025-03-14 10:45:00",
+      "2025-03-14 13:15:00",
+      "2025-03-14 13:35:00"
+    ],
+    "algorithm_confidence": 0.8,
+    "algorithm_quality": 69.84741165713842,
+    "cup_depth_pct": 1.8788958147818342,
+    "handle_depth_pct": 17.693836978131213,
+    "source_version": "test_min_handle_duration_15",
+    "labeled_at": "2025-07-15T18:28:18.204675",
+    "source": "incremental_test"
+  },
+  {
+    "id": "test_pattern_25",
+    "type": "positive",
+    "timestamps": [
+      "2025-02-28 11:30:00",
+      "2025-02-28 12:20:00",
+      "2025-02-28 14:55:00",
+      "2025-03-02 18:20:00",
+      "2025-03-02 19:55:00"
+    ],
+    "algorithm_confidence": 0.8,
+    "algorithm_quality": 73.95652286747597,
+    "cup_depth_pct": 0.8056992621490967,
+    "handle_depth_pct": 19.51219512195122,
+    "source_version": "test_min_handle_duration_15",
+    "labeled_at": "2025-07-15T18:28:18.204675",
+    "source": "incremental_test"
+  },
+  {
+    "id": "test_pattern_26",
+    "type": "positive",
+    "timestamps": [
+      "2025-02-03 20:35:00",
+      "2025-02-03 23:05:00",
+      "2025-02-04 09:15:00",
+      "2025-02-04 11:45:00",
+      "2025-02-04 13:10:00"
+    ],
+    "algorithm_confidence": 0.8,
+    "algorithm_quality": 61.22763619885464,
+    "cup_depth_pct": 0.856965431587663,
+    "handle_depth_pct": 15.357142857142858,
+    "source_version": "test_min_handle_duration_15",
+    "labeled_at": "2025-07-15T18:28:18.204675",
+    "source": "incremental_test"
+  },
+  {
+    "id": "test_pattern_27",
+    "type": "positive",
+    "timestamps": [
+      "2025-02-28 11:35:00",
+      "2025-02-28 12:20:00",
+      "2025-02-28 14:55:00",
+      "2025-03-02 18:20:00",
+      "2025-03-02 19:55:00"
+    ],
+    "algorithm_confidence": 0.8,
+    "algorithm_quality": 76.9747006694329,
+    "cup_depth_pct": 0.7594077468075177,
+    "handle_depth_pct": 19.51219512195122,
+    "source_version": "test_min_handle_duration_15",
+    "labeled_at": "2025-07-15T18:28:18.204675",
+    "source": "incremental_test"
+  },
+  {
+    "id": "test_pattern_28",
+    "type": "positive",
+    "timestamps": [
+      "2025-03-12 19:10:00",
+      "2025-03-13 12:45:00",
+      "2025-03-14 10:45:00",
+      "2025-03-14 13:15:00",
+      "2025-03-14 13:35:00"
+    ],
+    "algorithm_confidence": 0.8,
+    "algorithm_quality": 70.47434244920153,
+    "cup_depth_pct": 2.0097821253890618,
+    "handle_depth_pct": 17.693836978131213,
+    "source_version": "test_min_handle_duration_15",
+    "labeled_at": "2025-07-15T18:28:18.204675",
+    "source": "incremental_test"
+  },
+  {
+    "id": "test_pattern_29",
+    "type": "positive",
+    "timestamps": [
+      "2025-02-28 11:25:00",
+      "2025-02-28 12:20:00",
+      "2025-02-28 14:55:00",
+      "2025-03-02 18:20:00",
+      "2025-03-02 19:55:00"
+    ],
+    "algorithm_confidence": 0.8,
+    "algorithm_quality": 74.86247111407165,
+    "cup_depth_pct": 0.8561498686106638,
+    "handle_depth_pct": 19.51219512195122,
+    "source_version": "test_min_handle_duration_15",
+    "labeled_at": "2025-07-15T18:28:18.204675",
+    "source": "incremental_test"
+  },
+  {
+    "id": "test_pattern_30",
+    "type": "positive",
+    "timestamps": [
+      "2025-02-03 20:55:00",
+      "2025-02-03 23:05:00",
+      "2025-02-04 09:15:00",
+      "2025-02-04 11:45:00",
+      "2025-02-04 13:10:00"
+    ],
+    "algorithm_confidence": 0.8,
+    "algorithm_quality": 60.750604158920105,
+    "cup_depth_pct": 0.8117958913187541,
+    "handle_depth_pct": 15.357142857142858,
+    "source_version": "test_min_handle_duration_15",
+    "labeled_at": "2025-07-15T18:28:18.204675",
+    "source": "incremental_test"
+  },
+  {
+    "id": "test_pattern_31",
+    "type": "positive",
+    "timestamps": [
+      "2025-02-03 20:40:00",
+      "2025-02-03 23:05:00",
+      "2025-02-04 09:15:00",
+      "2025-02-04 11:45:00",
+      "2025-02-04 13:10:00"
+    ],
+    "algorithm_confidence": 0.8,
+    "algorithm_quality": 61.058083351932616,
+    "cup_depth_pct": 0.8241189381703731,
+    "handle_depth_pct": 15.357142857142858,
+    "source_version": "test_min_handle_duration_15",
+    "labeled_at": "2025-07-15T18:28:18.204675",
+    "source": "incremental_test"
+  },
+  {
+    "id": "test_pattern_32",
+    "type": "positive",
+    "timestamps": [
+      "2025-03-31 15:00:00",
+      "2025-03-31 20:05:00",
+      "2025-04-01 04:50:00",
+      "2025-04-01 07:20:00",
+      "2025-04-01 10:05:00"
+    ],
+    "algorithm_confidence": 0.8,
+    "algorithm_quality": 64.29256124592096,
+    "cup_depth_pct": 0.6760936809544852,
+    "handle_depth_pct": 94.91525423728814,
+    "source_version": "test_min_handle_duration_15",
+    "labeled_at": "2025-07-15T18:28:18.204675",
+    "source": "incremental_test"
+  },
+  {
+    "id": "test_pattern_33",
+    "type": "positive",
+    "timestamps": [
+      "2025-03-12 21:20:00",
+      "2025-03-13 12:45:00",
+      "2025-03-14 10:45:00",
+      "2025-03-14 13:15:00",
+      "2025-03-14 13:35:00"
+    ],
+    "algorithm_confidence": 0.8,
+    "algorithm_quality": 68.46530363695628,
+    "cup_depth_pct": 1.7783126086375185,
+    "handle_depth_pct": 17.693836978131213,
+    "source_version": "test_min_handle_duration_15",
+    "labeled_at": "2025-07-15T18:28:18.204675",
+    "source": "incremental_test"
+  }
+]

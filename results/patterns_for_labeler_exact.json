@@ -1,0 +1,155 @@
+[
+  {
+    "id": "pattern_2025-03-02 17:30:00_V3",
+    "type": "positive",
+    "timestamps": [
+      "2025-03-02 17:30:00",
+      "2025-03-02 18:30:00",
+      "2025-03-03 00:30:00",
+      "2025-03-03 03:00:00",
+      "2025-03-03 05:00:00"
+    ],
+    "algorithm_confidence": 0.8,
+    "algorithm_quality": 69.57231590116567,
+    "cup_depth_pct": 0.5559968228752978,
+    "handle_depth_pct": 49.166666666666664,
+    "source_version": "V3",
+    "source": "exact_individual_parallel_detection"
+  },
+  {
+    "id": "pattern_2025-03-12 08:45:00_V3",
+    "type": "positive",
+    "timestamps": [
+      "2025-03-12 08:45:00",
+      "2025-03-13 12:45:00",
+      "2025-03-14 10:30:00",
+      "2025-03-14 13:00:00",
+      "2025-03-16 17:00:00"
+    ],
+    "algorithm_confidence": 0.8,
+    "algorithm_quality": 69.09417874577467,
+    "cup_depth_pct": 2.166385510077244,
+    "handle_depth_pct": 16.867469879518072,
+    "source_version": "V3",
+    "source": "exact_individual_parallel_detection"
+  },
+  {
+    "id": "pattern_2025-03-17 15:00:00_V3",
+    "type": "positive",
+    "timestamps": [
+      "2025-03-17 15:00:00",
+      "2025-03-18 10:45:00",
+      "2025-03-19 13:45:00",
+      "2025-03-19 17:00:00",
+      "2025-03-19 22:15:00"
+    ],
+    "algorithm_confidence": 0.8,
+    "algorithm_quality": 70.22258830787146,
+    "cup_depth_pct": 1.44756921735339,
+    "handle_depth_pct": 17.84776902887139,
+    "source_version": "V3",
+    "source": "exact_individual_parallel_detection"
+  },
+  {
+    "id": "pattern_2025-03-17 14:00:00_V3",
+    "type": "positive",
+    "timestamps": [
+      "2025-03-17 14:00:00",
+      "2025-03-18 10:45:00",
+      "2025-03-19 13:45:00",
+      "2025-03-19 17:00:00",
+      "2025-03-19 22:15:00"
+    ],
+    "algorithm_confidence": 0.8,
+    "algorithm_quality": 72.48509943607262,
+    "cup_depth_pct": 1.8242626938279112,
+    "handle_depth_pct": 17.84776902887139,
+    "source_version": "V3",
+    "source": "exact_individual_parallel_detection"
+  },
+  {
+    "id": "pattern_2025-03-17 14:45:00_V3",
+    "type": "positive",
+    "timestamps": [
+      "2025-03-17 14:45:00",
+      "2025-03-18 10:45:00",
+      "2025-03-19 13:45:00",
+      "2025-03-19 17:00:00",
+      "2025-03-19 22:15:00"
+    ],
+    "algorithm_confidence": 0.8,
+    "algorithm_quality": 70.93003815111113,
+    "cup_depth_pct": 1.7559873082105448,
+    "handle_depth_pct": 17.84776902887139,
+    "source_version": "V3",
+    "source": "exact_individual_parallel_detection"
+  },
+  {
+    "id": "pattern_2025-03-12 13:45:00_V2",
+    "type": "positive",
+    "timestamps": [
+      "2025-03-12 13:45:00",
+      "2025-03-13 12:45:00",
+      "2025-03-14 12:00:00",
+      "2025-03-14 12:45:00",
+      "2025-03-14 14:45:00"
+    ],
+    "algorithm_confidence": 0.8,
+    "algorithm_quality": 72.54151540845834,
+    "cup_depth_pct": 2.1924374223326826,
+    "handle_depth_pct": 20.077220077220076,
+    "source_version": "V2",
+    "source": "exact_individual_parallel_detection"
+  },
+  {
+    "id": "pattern_2025-03-21 05:30:00_V1",
+    "type": "positive",
+    "timestamps": [
+      "2025-03-21 05:30:00",
+      "2025-03-21 08:15:00",
+      "2025-03-21 11:45:00",
+      "2025-03-21 14:15:00",
+      "2025-03-21 15:45:00"
+    ],
+    "algorithm_confidence": 0.8,
+    "algorithm_quality": 72.16306753163315,
+    "cup_depth_pct": 0.8422160810632979,
+    "handle_depth_pct": 37.02127659574468,
+    "source_version": "V1",
+    "source": "exact_individual_parallel_detection"
+  },
+  {
+    "id": "pattern_2025-01-27 02:00:00_V1",
+    "type": "positive",
+    "timestamps": [
+      "2025-01-27 02:00:00",
+      "2025-01-27 04:45:00",
+      "2025-01-27 09:30:00",
+      "2025-01-27 12:00:00",
+      "2025-01-27 15:00:00"
+    ],
+    "algorithm_confidence": 0.8,
+    "algorithm_quality": 73.4071599092799,
+    "cup_depth_pct": 1.4864808910604117,
+    "handle_depth_pct": 36.25,
+    "source_version": "V1",
+    "source": "exact_individual_parallel_detection"
+  },
+  {
+    "id": "pattern_2025-03-13 10:15:00_V1",
+    "type": "positive",
+    "timestamps": [
+      "2025-03-13 10:15:00",
+      "2025-03-13 12:45:00",
+      "2025-03-13 22:15:00",
+      "2025-03-14 00:45:00",
+      "2025-03-14 05:45:00"
+    ],
+    "algorithm_confidence": 0.8,
+    "algorithm_quality": 67.63837128532899,
+    "cup_depth_pct": 1.028427718147932,
+    "handle_depth_pct": 25.49800796812749,
+    "source_version": "V1",
+    "source": "exact_individual_parallel_detection"
+  }
+]

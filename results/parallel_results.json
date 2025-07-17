@@ -1,0 +1,34 @@
+{
+  "metadata": {
+    "detection_timestamp": "2025-07-15T12:35:32.620549",
+    "total_execution_time": 54.97140383720398,
+    "data_bars": 4995
+  },
+  "individual_results": {
+    "V1": {
+      "version": "V1",
+      "patterns": [],
+      "count": 0,
+      "execution_time": 0.6116759777069092,
+      "status": "failed",
+      "error": "name 'patterns' is not defined"
+    },
+    "V3": {
+      "version": "V3",
+      "patterns": [],
+      "count": 0,
+      "execution_time": 50.40062952041626,
+      "status": "failed",
+      "error": "object of type 'NoneType' has no len()"
+    },
+    "V2": {
+      "version": "V2",
+      "patterns": [],
+      "count": 0,
+      "execution_time": 54.97040367126465,
+      "status": "success"
+    }
+  },
+  "all_patterns": [],
+  "total_patterns": 0
+}

@@ -1,0 +1,53 @@
+CUP & HANDLE DETECTION - MULTI-VERSION RESULTS
+============================================================
+
+Detection Time: 2025-07-17T11:15:12.506264
+Total Execution: 96.02 seconds
+Success Rate: 4/4
+
+INDIVIDUAL RESULTS:
+------------------------------
+MICRO: [SUCCESS]
+  Patterns Found: 20
+  Execution Time: 24.33s
+
+V2: [SUCCESS]
+  Patterns Found: 1
+  Execution Time: 68.66s
+
+V3: [SUCCESS]
+  Patterns Found: 9
+  Execution Time: 75.20s
+
+V1: [SUCCESS]
+  Patterns Found: 0
+  Execution Time: 96.02s
+
+COMBINED ANALYSIS:
+------------------------------
+Total Patterns: 30
+After Deduplication: 24
+Average Quality: 84.1
+Quality Range: 66.2 - 93.4
+
+TOP 10 PATTERNS BY QUALITY:
+------------------------------
+ 1. 2025-03-07 07:30:00 (Quality: 93.4, Source: micro)
+ 2. 2025-03-10 14:30:00 (Quality: 92.2, Source: micro)
+ 3. 2025-02-25 04:15:00 (Quality: 92.1, Source: micro)
+ 4. 2025-02-12 05:30:00 (Quality: 91.8, Source: micro)
+ 5. 2025-03-13 11:30:00 (Quality: 91.7, Source: micro)
+ 6. 2025-03-27 05:00:00 (Quality: 91.7, Source: micro)
+ 7. 2025-04-01 11:45:00 (Quality: 91.7, Source: micro)
+ 8. 2025-01-27 03:30:00 (Quality: 91.4, Source: micro)
+ 9. 2025-03-21 07:00:00 (Quality: 91.4, Source: micro)
+10. 2025-03-06 13:45:00 (Quality: 91.4, Source: micro)
+
+PATTERN ANALYSIS:
+------------------------------
+Cup Depth Range: 0.46% - 2.19%
+Average Cup Depth: 1.00%
+Handle Depth Range: 0.21% - 94.92%
+Average Handle Depth: 6.06%
+Pattern Duration Range: 4.0h - 71.5h
+Average Duration: 13.2h
