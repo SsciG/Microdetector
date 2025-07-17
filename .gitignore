@@ -1,2 +1,6 @@
 ES_timeframes/
 results/
+ES_timeframes/DATA_INTEGRITY_REPORT.txt
+ES_timeframes/*.csv
+ES_timeframes/data_checksums.txt
+ES_timeframes/
