@@ -2,6 +2,8 @@ import pandas as pd
 import json
 import os
 from multi_detector import MultiVersionDetector
+from detector_micro import CupHandleDetector
+import time
 
 def main():
     # Configuration
@@ -27,36 +29,63 @@ def main():
     df = df[df.index >= cutoff_date]
     print(f"📅 Filtered: {original_length} → {len(df)} bars (from {cutoff_date.date()})")
     
-    # Create multi-detector and run
-    print(f"\n🎯 Starting parallel detection with 3 versions...")
-    multi_detector = MultiVersionDetector()
-    results = multi_detector.detect_all_parallel(df, timeout_seconds=1200)  # 3 minutes per detector
+    # RUN MICRO DETECTOR ONLY
+    print(f"\n🔬 Running MICRO detector only...")
+    start_time = time.time()
+    micro_detector = CupHandleDetector()
+    patterns = micro_detector.detect(df)
+    execution_time = time.time() - start_time
+    
+    print(f"🔬 Micro detector found {len(patterns)} patterns in {execution_time:.2f}s")
+    
+    # Create results structure compatible with rest of main.py
+    results = {
+        'unique_patterns': patterns,
+        'metadata': {
+            'detection_timestamp': pd.Timestamp.now().isoformat(),
+            'total_execution_time': execution_time,
+            'successful_versions': 1,
+            'versions_run': 1
+        },
+        'individual_results': {
+            'micro': {
+                'patterns': patterns,
+                'count': len(patterns),
+                'status': 'success',
+                'execution_time': execution_time
+            }
+        },
+        'analysis': {
+            'summary': {'total_patterns': len(patterns)},
+            'quality_comparison': {}
+        }
+    }
     
     # Save comprehensive results
     output_file = os.path.join(output_dir, "multi_version_results.json")
     with open(output_file, 'w') as f:
         json.dump(results, f, indent=2, default=str)
     
-    print(f"\n💾 Full results saved to {output_file}")
+    print(f"💾 Full results saved to {output_file}")
     
     # Save individual version results for easier access
     combined_output = {
-    "metadata": results['metadata'],
-    "summary": results['analysis']['summary'],
-    "all_patterns_by_version": {
-        version_id: result['patterns'] 
-        for version_id, result in results['individual_results'].items()
-    },
-    "unique_patterns": results['unique_patterns'],
-    "quality_analysis": results['analysis'].get('quality_comparison', {}),
-    "execution_stats": {
-        version_id: {
-            'count': result['count'],
-            'execution_time': result['execution_time'],
-            'status': result['status']
-        } for version_id, result in results['individual_results'].items()
+        "metadata": results['metadata'],
+        "summary": results['analysis']['summary'],
+        "all_patterns_by_version": {
+            version_id: result['patterns'] 
+            for version_id, result in results['individual_results'].items()
+        },
+        "unique_patterns": results['unique_patterns'],
+        "quality_analysis": results['analysis'].get('quality_comparison', {}),
+        "execution_stats": {
+            version_id: {
+                'count': result['count'],
+                'execution_time': result['execution_time'],
+                'status': result['status']
+            } for version_id, result in results['individual_results'].items()
+        }
     }
-}
 
     # Single comprehensive file
     single_file = os.path.join(output_dir, "all_cup_handle_results.json")
@@ -64,12 +93,14 @@ def main():
         json.dump(combined_output, f, indent=2, default=str)
 
     print(f"💾 All results saved to {single_file}")
-    print(f"\n🔄 Converting patterns to labeler format...")
+    
+    # Convert patterns to labeler format
+    print(f"🔄 Converting patterns to labeler format...")
     labeler_compatible_patterns = []
 
     for pattern in results['unique_patterns']:
         labeler_pattern = {
-            'id': f"pattern_{pattern['peak_a'].strftime('%Y%m%d_%H%M%S')}",  # ← FIXED
+            'id': f"pattern_{pattern['peak_a'].strftime('%Y%m%d_%H%M%S')}",
             'type': 'positive',
             'timestamps': [
                 pattern['peak_a'],
@@ -82,9 +113,9 @@ def main():
             'algorithm_quality': pattern.get('quality_score', 0),
             'cup_depth_pct': pattern.get('cup_depth_pct', 0),
             'handle_depth_pct': pattern.get('handle_depth_pct', 0),
-            'source_version': pattern.get('source_version', 'unknown'),
+            'source_version': pattern.get('source_version', 'micro'),
             'labeled_at': pd.Timestamp.now().isoformat(),
-            'source': 'multi_algorithm_detection'
+            'source': 'micro_detector_only'
         }
         labeler_compatible_patterns.append(labeler_pattern)
 
@@ -93,15 +124,12 @@ def main():
         json.dump(labeler_compatible_patterns, f, indent=2, default=str)
 
     print(f"💾 Labeler-compatible patterns saved to {labeler_file}")
-
-
     
     # Create summary report
     create_summary_report(results, output_dir)
     
     print(f"\n🎉 All done! Check the '{output_dir}' folder for results.")
-
-    
+    print(f"🔬 MICRO DETECTOR SUMMARY: {len(patterns)} patterns found")
 
 def create_summary_report(results, output_dir):
     """Create a human-readable summary report with proper Unicode handling"""
@@ -109,7 +137,7 @@ def create_summary_report(results, output_dir):
     
     # Use UTF-8 encoding and ASCII-safe characters for Windows compatibility
     with open(report_file, 'w', encoding='utf-8') as f:
-        f.write("CUP & HANDLE DETECTION - MULTI-VERSION RESULTS\n")
+        f.write("CUP & HANDLE DETECTION - MICRO DETECTOR ONLY\n")
         f.write("=" * 60 + "\n\n")
         
         f.write(f"Detection Time: {results['metadata']['detection_timestamp']}\n")

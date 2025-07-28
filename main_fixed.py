@@ -22,7 +22,7 @@ def main():
     df.set_index('timestamp', inplace=True)
     
     # Filter recent data (same as your individual runs)
-    cutoff_date = pd.Timestamp.now() - pd.DateOffset(months=6)
+    cutoff_date = pd.Timestamp.now() - pd.DateOffset(months=12)
     original_length = len(df)
     df = df[df.index >= cutoff_date]
     print(f"📅 Filtered: {original_length} → {len(df)} bars (from {cutoff_date.date()})")
@@ -39,7 +39,7 @@ def main():
     # Create multi-detector and run
     print(f"\n🎯 Starting FIXED parallel detection with 3 versions...")
     multi_detector = MultiVersionDetector()
-    results = multi_detector.detect_all_parallel(df, timeout_seconds=180)  # 3 minutes per detector
+    results = multi_detector.detect_all_parallel(df, timeout_seconds=600)  # 10 minutes per detector
     
     # Verify results match expectations
     print(f"\n🔍 RESULTS VERIFICATION:")

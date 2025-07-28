@@ -3325,7 +3325,7 @@ if __name__ == "__main__":
     df.set_index('timestamp', inplace=True)
 
     # 🔥 FILTER: Only last 10 years to avoid massive time gaps
-    cutoff_date = pd.Timestamp.now() - pd.DateOffset(months=6)
+    cutoff_date = pd.Timestamp.now() - pd.DateOffset(months=12)
     original_length = len(df)
     df = df[df.index >= cutoff_date]
     print(f"📅 FILTERED DATA: {original_length} → {len(df)} bars (last 10 years since {cutoff_date.date()})")

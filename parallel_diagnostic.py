@@ -192,7 +192,7 @@ def main():
     df.set_index('timestamp', inplace=True)
     
     # Filter data exactly like individual scripts
-    cutoff_date = pd.Timestamp.now() - pd.DateOffset(months=6)
+    cutoff_date = pd.Timestamp.now() - pd.DateOffset(months=12)
     original_length = len(df)
     df = df[df.index >= cutoff_date]
     print(f"📅 Filtered: {original_length} → {len(df)} bars (from {cutoff_date.date()})")
