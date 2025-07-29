@@ -1,2 +1,2 @@
-MICRO: Starting with 4163 bars
+MICRO: Starting with 4085 bars
 MICRO: Columns: ['open', 'high', 'low', 'close', 'volume']

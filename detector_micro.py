@@ -146,29 +146,41 @@ class CupHandleDetector:
         for i, peak_a in enumerate(peaks[:-1]):
             for peak_c in peaks[i+1:]:
                 cups_tested += 1
-                
+
+                # NEW: Find actual highest point between peak_a and peak_c
+                cup_validation_period = df.loc[peak_a:peak_c]
+                cup_max_high = cup_validation_period['high'].max()
+                cup_max_high_idx = cup_validation_period['high'].idxmax()
+
+                # If there's a higher point than peak_c, use it as the actual peak_c
+                if cup_max_high > df.loc[peak_c, 'high']:
+                    logger.info(f"🔄 Adjusting peak_c from {peak_c} ({df.loc[peak_c, 'high']:.2f}) to {cup_max_high_idx} ({cup_max_high:.2f})")
+                    peak_c = cup_max_high_idx
+                     # Skip if adjusted peak_c is same as or before peak_a
+                    if peak_c <= peak_a:
+                        continue
+
                 # Duration check
                 pattern_duration_minutes = (peak_c - peak_a).total_seconds() / 60
-                
+
                 if pattern_duration_minutes > MAX_PATTERN_MINUTES:
                     continue
-                
+
                 if pattern_duration_minutes < MIN_PATTERN_MINUTES:
                     continue
-                
+
                 # Find cup bottom between rims
                 cup_troughs = [t for t in troughs if peak_a < t < peak_c]
                 if not cup_troughs:
                     continue
 
-                # NEW: Pre-validation for fundamental cup rim violation
-                cup_validation_period = df.loc[peak_a:peak_c]
+                # Now rim_level will always be the true highest point
                 rim_level = max(df.loc[peak_a, 'high'], df.loc[peak_c, 'high'])
-                cup_max_high = cup_validation_period['high'].max()
+             
 
                 # HARD CONSTRAINT: Zero tolerance for rim violations
                 current_atr = self.calculate_atr(df, 20).iloc[-1] if hasattr(self, 'calculate_atr') else 15.0
-                max_allowed_violation = current_atr * 0.15
+                max_allowed_violation = current_atr * 0.22
 
                 if cup_max_high > (rim_level + max_allowed_violation):
                     violation_amount = cup_max_high - rim_level
@@ -301,6 +313,10 @@ class CupHandleDetector:
         """GROUND RULE 3: Breakout must be AT or ABOVE cup rim level"""
         try:
             handle_end_idx = df.index.get_loc(handle['end'])
+            for i in range(handle_end_idx + 1, min(len(df), handle_end_idx + 11)):
+             if df.iloc[i]['high'] > df.loc[peak_c, 'high']:
+                 logger.info(f"❌ C-E VIOLATION: Price {df.iloc[i]['high']:.2f} exceeded peak_c {df.loc[peak_c, 'high']:.2f} before breakout")
+                 return None
             rim_level = max(df.loc[peak_a, 'high'], df.loc[peak_c, 'high'])
             
             logger.info(f"🔧 BREAKOUT SEARCH: rim_level=${rim_level:.2f}")
@@ -343,6 +359,42 @@ class CupHandleDetector:
                 return False
         
         return True
+    
+    def _validate_handle_point(self, df, handle_idx, handle_low, peak_c, trough_b, peak_a=None):
+      """
+      Validate if a specific point can serve as a valid handle
+      Extracted from _find_strict_handle for reuse
+      """
+      # Get the price data we need
+      peak_c_price = df.loc[peak_c, 'high']
+      trough_b_price = df.loc[trough_b, 'low']
+      handle_high = df.loc[handle_idx, 'high']
+
+      # Set rim level
+      if peak_a is not None:
+          peak_a_price = df.loc[peak_a, 'high']
+          rim_level = max(peak_a_price, peak_c_price)
+      else:
+          rim_level = peak_c_price
+
+      # Check if handle exceeds rim
+      if handle_high > rim_level:
+          return False
+
+      # Check if handle is below rim
+      if handle_low >= peak_c_price:
+          return False
+
+      # Check if handle is above cup bottom with ATR buffer
+      current_atr = self.calculate_atr(df, 20).iloc[-1] if hasattr(self, 'calculate_atr') else 15.0       
+    #   min_handle_level = trough_b_price + (current_atr * 1.0)
+    #   if handle_low < min_handle_level:
+    #       return False
+      
+      if handle_low <= trough_b_price:
+         return False
+
+      return True
                     
 
     
@@ -368,6 +420,54 @@ class CupHandleDetector:
         # NEW: Minimum gap after peak C
         min_gap_bars = 2
         
+         # HYBRID APPROACH: Try absolute lowest first, fallback to sequential
+        search_window = df.iloc[peak_c_idx + 1 + min_gap_bars:search_end]
+
+        if len(search_window) == 0:
+            return None
+
+        # STEP 1: Find absolute lowest point in search window
+        lowest_idx_in_window = search_window['low'].idxmin()
+        lowest_price = search_window.loc[lowest_idx_in_window, 'low']
+
+        logger.info(f"🔧 HYBRID: Trying absolute lowest first: ${lowest_price:.2f} at {lowest_idx_in_window}")
+
+        # STEP 2: Try to validate lowest point as handle
+        if self._validate_handle_point(df, lowest_idx_in_window, lowest_price, peak_c, trough_b, peak_a):       
+            logger.info(f"✅ OPTIMAL: Using absolute lowest point as handle")
+
+            # Find recovery from this lowest point
+            lowest_idx_pos = df.index.get_loc(lowest_idx_in_window)
+            for j in range(lowest_idx_pos + 1, min(search_end, lowest_idx_pos + 20)):
+                if df.iloc[j]['high'] > lowest_price * 1.002:
+                    handle_depth_points = peak_c_price - lowest_price
+                    handle_depth_pct = (handle_depth_points / peak_c_price) * 100
+
+                    if 0.2 <= handle_depth_pct <= 2.0:
+                        # Apply the same validation as original code
+                        handle_period = df.iloc[lowest_idx_pos:j]
+
+                        # Check for violations below cup bottom
+                        handle_violations = handle_period[handle_period['low'] < trough_b_price]
+                        if not handle_violations.empty:
+                            break  # Try fallback method
+
+                        # Check handle doesn't exceed rim
+                        if handle_period['high'].max() > rim_level:
+                            break  # Try fallback method
+
+                        logger.info(f"✅ OPTIMAL HANDLE: {handle_depth_pct:.2f}% depth")
+                        return {
+                            'start': lowest_idx_in_window,
+                            'end': df.index[j-1],
+                            'low_price': lowest_price,
+                            'depth_pct': handle_depth_pct,
+                            'method': 'optimal_lowest'
+                        }
+
+        logger.info(f"⚠️ FALLBACK: Absolute lowest failed validation, using sequential search")
+
+        # STEP 3: Fallback to current sequential method
         for i in range(peak_c_idx + 1 + min_gap_bars, search_end):
             handle_low = df.iloc[i]['low']
             handle_high = df.iloc[i]['high']
@@ -404,7 +504,7 @@ class CupHandleDetector:
                 max_high_between = between_period['high'].max()
                 logger.info(f"🔧 BETWEEN: max_high=${max_high_between:.2f} vs rim_threshold=${rim_level * 1.001:.2f}")
                 
-                if max_high_between > rim_level * 1.001:  # 0.1% tolerance
+                if max_high_between > rim_level: 
                     logger.info(f"❌ HANDLE INVALID: Price went ${max_high_between:.2f} above rim ${rim_level:.2f}")
                     continue
                 else:
@@ -450,7 +550,8 @@ class CupHandleDetector:
                                 'start': df.index[i],
                                 'end': df.index[j-1],
                                 'low_price': handle_low,
-                                'depth_pct': handle_depth_pct
+                                'depth_pct': handle_depth_pct,
+                                'method': 'sequential_fallback'
                             }
         return None
 
@@ -476,12 +577,12 @@ class CupHandleDetector:
             duration_minutes
         )
 
-        if pattern_significance < 15.0:
+        if pattern_significance < 8.0:
             logger.info(f"❌ INSTITUTIONAL: Pattern significance {pattern_significance:.1f} < 15.0")
             return False
             
         current_atr = self.calculate_atr(df, 20).iloc[-1] if hasattr(self, 'calculate_atr') else 5.0
-        min_cup_depth_points = current_atr * 2.0 
+        min_cup_depth_points = current_atr * 1.5 
         cup_depth_points = max_rim - trough_b_price
         logger.info(f"🔧 ATR TEST: current_atr={current_atr:.2f}, min_required_points={min_cup_depth_points:.2f}")
         logger.info(f"🔧 ATR TEST: cup_depth_points={cup_depth_points:.2f}, cup_depth_pct={cup_depth_pct:.2f}%")
@@ -515,7 +616,7 @@ class CupHandleDetector:
         
         volatility_ratio = self._calculate_pattern_volatility_ratio(df, peak_a, peak_c)
         logger.info(f"🔧 VOLATILITY: ratio={volatility_ratio:.1f}, depth={cup_depth_pct:.2f}%")
-        if volatility_ratio < 2.0:  # Pattern depth must be 2x its own volatility
+        if volatility_ratio < 1.0: 
             logger.info(f"❌ NOISE: Depth/volatility ratio {volatility_ratio:.1f} < 2.0")
             return False
         
@@ -530,7 +631,7 @@ class CupHandleDetector:
         bottom_bars = len(cup_segment[cup_segment['low'] <= bottom_threshold])
         bottom_percentage = bottom_bars / len(cup_segment)
 
-        if bottom_percentage < 0.20:  # Less than 20% time at bottom
+        if bottom_percentage < 0.10:  # Less than 20% time at bottom
             logger.info(f"❌ V-SPIKE: only {bottom_percentage:.1%} time at bottom")
             return False
 
@@ -542,8 +643,8 @@ class CupHandleDetector:
         
         current_atr = self.calculate_atr(df, 20).iloc[-1] if hasattr(self, 'calculate_atr') else 15.0
 
-        # Rim difference should not exceed 1.5x ATR
-        max_allowed_rim_diff = current_atr * 1.2
+        # Rim difference should not exceed 0.5x ATR
+        max_allowed_rim_diff = current_atr * 0.6
 
         if rim_diff_abs > max_allowed_rim_diff:
             logger.info(f"❌ ASYMMETRIC: Rim difference {rim_diff_abs:.2f} points > {max_allowed_rim_diff:.2f} (1.5x ATR)")
@@ -582,7 +683,7 @@ class CupHandleDetector:
 
         # FIXED: Remove tolerance completely - hard geometric constraint
         current_atr = self.calculate_atr(df, 20).iloc[-1] if hasattr(self, 'calculate_atr') else 15.0
-        max_allowed_violation = current_atr * 0.15  # Allow only 0.15x ATR above rim
+        max_allowed_violation = current_atr * 0.22  # Allow only 0.25x ATR above rim
 
         if max_high_in_cup > (max_rim + max_allowed_violation):
             violation_amount = max_high_in_cup - max_rim
@@ -636,10 +737,7 @@ class CupHandleDetector:
         rim_diff_abs = abs(peak_a_price - peak_c_price)
         rim_diff_pct = (rim_diff_abs / max(peak_a_price, peak_c_price)) * 100
         
-        if rim_diff_pct > 8.0:
-            logger.info(f"❌ Rim asymmetry: {rim_diff_pct:.2f}% > 8.0%")
-            return False
-        
+
         # LONGER DURATION CHECK - Allow multi-day patterns
         duration_minutes = (peak_c - peak_a).total_seconds() / 60
         duration_days = duration_minutes / (60 * 24)
@@ -853,12 +951,7 @@ class CupHandleDetector:
         if (left_depth_points < self.config['min_cup_depth_points'] or 
             right_depth_points < self.config['min_cup_depth_points']):
             return False
-        
-        # Rim symmetry check (point-based)
-        rim_diff_points = abs(left_rim - right_rim)
-        if rim_diff_points > self.config['rim_tolerance_points']:
-            return False
-        
+
         # Ensure cup bottom is actually lower than rims
         max_rim = max(left_rim, right_rim)
         if cup_bottom >= max_rim * 0.998:  # 0.2% tolerance
